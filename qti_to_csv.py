@@ -4,17 +4,23 @@ import pandas as pd
 import re  # For regex operations
 
 # Path to the folder containing extracted QTI folders
-qti_folder = "Quiz1"
+qti_folder = "Lab1"
 data = []
 
 # Namespace in the XML file (adjust based on your file)
 namespace = {"qti": "http://www.imsglobal.org/xsd/ims_qtiasiv1p2"}
 
 # Function to remove HTML tags from text
-def remove_html_tags(text):
+def clean_text(text):
     if text:
-        clean_text = re.sub(r'<.*?>', '', text)  # Remove all HTML tags
-        return clean_text
+        # Remove specific <font> tags but preserve their inner content
+        clean_text = re.sub(r'<font[^>]*>', '', text, flags=re.DOTALL)
+        clean_text = re.sub(r'</font>', '', clean_text, flags=re.DOTALL)
+        # Remove any other HTML tags
+        clean_text = re.sub(r'<.*?>', '', clean_text)
+        # Replace problematic apostrophes with the correct one
+        clean_text = clean_text.replace("‘", "'").replace("’", "'")
+        return clean_text.strip()
     return text
 
 # List of question types to remove
@@ -57,7 +63,7 @@ for folder in os.listdir(qti_folder):
                     # Column D
                     # Extract question text
                     question_text = item.find(".//qti:mattext", namespace)
-                    question["Question"] = remove_html_tags(question_text.text if question_text is not None else "No Question Text")
+                    question["Question"] = clean_text(question_text.text if question_text is not None else "No Question Text")
 
 
                     # Extract answers
@@ -80,7 +86,7 @@ for folder in os.listdir(qti_folder):
                             correct_answer_indices.append(str(idx))  # Store the numeric index of the correct answer
 
                     # Save the correct answer(s) as numbers
-                    question["Correct Answer"] = " | ".join(correct_answer_indices)
+                    question["Correct Answer"] = clean_text(" | ".join(correct_answer_indices))
 
                     # Process each <response_label> for answers
                     for idx, response in enumerate(item.findall(".//qti:response_label", namespace), start=1):
@@ -89,7 +95,7 @@ for folder in os.listdir(qti_folder):
                         answer_text = answer_text.text if answer_text is not None else "No Answer Text"
                         
                         # Add each answer as its own column, e.g., "Answer 1", "Answer 2"
-                        question[f"Answer {idx}"] = answer_text
+                        question[f"Answer {idx}"] = clean_text(answer_text)
 
                     # Remove empty answer columns
                     question.pop("Answer 5", None)

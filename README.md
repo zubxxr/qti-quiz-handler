@@ -39,3 +39,12 @@ Your export will show up at the top and you can download it. You may have to ref
 
 After downloading it, it will appear as a zipped folder in your Downloads. This is the QTI folder. 
 
+Afterwards, move this folder into your workspace, unzip it, and add the qti_to_csv.py script into the workspace. Inside the script, change the path to the unzipped folder and save the script.
+
+Next, you have to create a python virtual environment. 
+
+On Linux, you can use python3 -m venv <venv_name>. Im not sure about windows. 
+Next, activate the venv: source <venv_name>/bin/activate
+And run: pip install pandas
+
+Next, run the python script, and you will get a csv file exported. 

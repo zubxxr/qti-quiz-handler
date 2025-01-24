@@ -12,3 +12,27 @@ https://dl.sps.northwestern.edu/canvas/2021/06/add-quiz-questions-to-canvas-by-c
 5. Add more questions in the proper format.
 6. Download as a CSV file and use the CSV to Canvas (QTI 2.0) Converter to convert to a QTI folder.
 7. Import into Canvas.
+
+## If you have a question bank and would like to add more:
+1. On Canvas, go to Quizzes > Add Quiz and change the name of quiz to your choosing.
+![image](https://github.com/user-attachments/assets/358c7c12-b985-423c-9c59-b307a778f49e)
+
+2. Go to Questions Tab and Click on "Find Questions"
+![image](https://github.com/user-attachments/assets/8fc0a6d3-3805-4e07-91d8-db8989e9f711)
+
+Find the Question Bank and Click "Select All", Scroll Down, and Click Add Questions
+![image](https://github.com/user-attachments/assets/052d64ff-4704-40dd-8e60-107f3389a0ae)
+
+Scroll down and Click "Save". Careful not to "Save and Publish".
+
+You will then see the quiz with your name you chose showing up in Quizzes.
+
+Next, Go to settings, and click on Export Course Content on the right
+![image](https://github.com/user-attachments/assets/023d5d40-ec09-414c-b151-c9de38eac2ff)
+
+under Export Type, Select Quiz, and Either Select All Quizzes, or the quiz you just created. Then click Create Export
+![image](https://github.com/user-attachments/assets/19c3e717-8622-4257-8ac6-45fcf9007e3f)
+
+
+
+

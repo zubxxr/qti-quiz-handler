@@ -34,5 +34,8 @@ under Export Type, Select Quiz, and Either Select All Quizzes, or the quiz you j
 ![image](https://github.com/user-attachments/assets/19c3e717-8622-4257-8ac6-45fcf9007e3f)
 
 
+Your export will show up at the top and you can download it. You may have to refresh the page for it to appear.
+![image](https://github.com/user-attachments/assets/13f157d1-379a-41fe-a732-efd473a147fd)
 
+After downloading it, it will appear as a zipped folder in your Downloads. This is the QTI folder. 
 
